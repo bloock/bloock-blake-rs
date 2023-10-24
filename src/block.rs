@@ -56,8 +56,8 @@ impl Blake512 {
             let mut m: [u64; 16] = [0; 16];
             let mut j = 0;
 
-            for i in 0..16 {
-                m[i] = (u64::from(p[j]) << 56)
+            for mi in &mut m {
+                *mi = (u64::from(p[j]) << 56)
                     | (u64::from(p[j + 1]) << 48)
                     | (u64::from(p[j + 2]) << 40)
                     | (u64::from(p[j + 3]) << 32)
